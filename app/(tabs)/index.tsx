@@ -8,7 +8,7 @@ export default function TabOneScreen() {
   return (
     <ImageBackground
       source={{
-        uri: "https://source.unsplash.com/random?brick,bricklayer,builders",
+        uri: "https://source.unsplash.com/random?bricklayer,builders,blackandwhite",
       }}
       style={{ width: "100%", height: "100%", opacity: 1 }}
     >
@@ -33,12 +33,9 @@ export default function TabOneScreen() {
   );
 }
 
-
-
-
 const styles = StyleSheet.create({
   container: {
-    flex: 1.5,
+    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -53,7 +50,7 @@ const styles = StyleSheet.create({
   },
   blurbContainer: {
     padding: 20,
-    backgroundColor: "grey",
+    backgroundColor: "darkgrey",
     opacity: 1,
   },
   description: {

@@ -1,4 +1,4 @@
-import { StyleSheet, TextInput, Button, ImageBackground } from 'react-native';
+import { StyleSheet, TextInput, Button, ImageBackground, Pressable } from 'react-native';
 import { Text, View } from '@/components/Themed';
 
 import React, { useState } from 'react';
@@ -31,7 +31,7 @@ export default function TabTwoScreen() {
   return (
     <ImageBackground
     source={{
-      uri: "https://source.unsplash.com/random?brick,bricklayer,builders",
+      uri: "https://source.unsplash.com/random?bricklayer,builders,blackandwhite",
     }}
     style={{ width: "100%", height: "100%", opacity: 1 }}
   >
@@ -56,7 +56,9 @@ export default function TabTwoScreen() {
         value={enquiry.projectDescription}
         onChangeText={handleChangeProjectDescription}
       />
-      <Button title="Submit Enquiry" onPress={handleSubmit} />
+      <Pressable onPress={handleSubmit}>
+          <Text style={styles.buttonText}>Submit Enquiry</Text>
+        </Pressable>
     </View>
     </ImageBackground>
   );
@@ -82,5 +84,14 @@ const styles = StyleSheet.create({
     borderColor: '#ccc',
     borderWidth: 1,
     marginBottom: 10,
+  },
+  buttonText: {
+    fontSize: 16,
+    lineHeight: 22,
+    marginVertical: 10,
+    color: "white",
+    backgroundColor: "black",
+    padding: 10,
+    borderRadius: 10,
   }
 });

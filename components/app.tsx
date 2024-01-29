@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, Image, Button } from 'react-native';
-import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
 
 import Menu from './Menu';
 import HeroSection from './HeroSection';

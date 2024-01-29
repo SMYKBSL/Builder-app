@@ -6,21 +6,6 @@ import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 
 import { useColorScheme } from '@/components/useColorScheme';
-import { ImageBackground } from 'react-native';
-
-//import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
-
-const theme = {
-  ...DefaultTheme,
-  colors: {
-    ...DefaultTheme.colors,
-    primary: '#3498db',
-    accent: '#f1c40f',
-    background: '#34495e',
-    surface: '#2c3e50',
-    text: '#ecf0f1',
-  },
-};
 
 export {
   // Catch any errors thrown by the Layout component.

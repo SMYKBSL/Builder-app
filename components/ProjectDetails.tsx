@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, Image, ScrollView, Button, StyleSheet } from 'react-native';
+import { View, Text, Image, ScrollView, StyleSheet, Pressable } from 'react-native';
 
 type Project = {
   title: string;
@@ -32,25 +32,25 @@ const ProjectDetails: React.FC<{ project: Project; onClose: () => void }> = ({
         style={styles.projectImage}
       />
       <View style={styles.imageNavigation}>
-        <Button
-          title="< Prev"
-          onPress={() => handleImageChange("prev")}
-          disabled={currentImage === 0}
-        />
+        <Pressable onPress={() => handleImageChange("prev")}
+          disabled={currentImage === 0}>
+          <Text style={styles.buttonText}>Previous</Text> 
+        </Pressable>
+        <Pressable onPress={() => handleImageChange("next")}
+          disabled={currentImage === 0}>
+          <Text style={styles.buttonText}>Next</Text> 
+        </Pressable>
         <Text style={styles.imageCounter}>{`${currentImage + 1} / ${
           project.images.length
         }`}</Text>
-        <Button
-          title="Next >"
-          onPress={() => handleImageChange("next")}
-          disabled={currentImage === project.images.length - 1}
-        />
       </View>
       <ScrollView style={styles.descriptionContainer}>
         <Text>{project.description}</Text>
         {/* Add additional details sections like features, specifications, etc. */}
       </ScrollView>
-      <Button title="Close" onPress={onClose} />
+      <Pressable onPress={() => {}}>
+      <Text style={styles.buttonText}>Close</Text> 
+    </Pressable>
     </View>
   );
 };
@@ -86,7 +86,16 @@ const styles = StyleSheet.create({
     },
     closeButton: {
         alignSelf: 'flex-end',
-    }   
+    },
+    buttonText: {
+      fontSize: 16,
+      lineHeight: 22,
+      marginVertical: 10,
+      color: "white",
+      backgroundColor: "black",
+      padding: 10,
+      borderRadius: 10,
+    }
 });
 
 export default ProjectDetails;

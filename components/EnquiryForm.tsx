@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+import { View, Text, TextInput, StyleSheet, Pressable } from 'react-native';
 
 type Enquiry = {
   name: string;
@@ -48,7 +48,9 @@ const EnquiryForm: React.FC = () => {
         value={enquiry.projectDescription}
         onChangeText={handleChangeProjectDescription}
       />
-      <Button title="Submit Enquiry" onPress={handleSubmit} />
+      <Pressable onPress={() => {}}>
+        <Text style={styles.buttonText}>Submit Enquiry</Text> 
+      </Pressable>
     </View>
   );
 };
@@ -72,6 +74,15 @@ const styles = StyleSheet.create({
     borderColor: '#ccc',
     borderWidth: 1,
     marginBottom: 10,
+  },
+  buttonText: {
+    fontSize: 16,
+    lineHeight: 22,
+    marginVertical: 10,
+    color: "white",
+    backgroundColor: "black",
+    padding: 10,
+    borderRadius: 10,
   }
 });
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+import { View, Text, TextInput, StyleSheet } from 'react-native';
 
 const EnquiryForm = () => {
   const [name, setName] = useState('');
@@ -36,7 +36,10 @@ const EnquiryForm = () => {
         value={projectDescription}
         onChangeText={setProjectDescription}
       />
-      <Button title="Submit Enquiry" onPress={handleSubmit} />
+          <Pressable onPress={() => {}}>
+      <Text style={styles.buttonText}>Submit Enquiry</Text> 
+    </Pressable>
+
     </View>
   );
 };

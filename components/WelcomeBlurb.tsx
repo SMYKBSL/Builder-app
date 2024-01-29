@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text,Button, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Pressable } from 'react-native';
 
 const WelcomeBlurb: React.FC = () => {
   return (
@@ -11,7 +11,9 @@ const WelcomeBlurb: React.FC = () => {
         we pride ourselves on {`[Highlight key qualities, e.g., precision, quality, reliability]`}
         workmanship and exceeding client expectations.
       </Text>
-      /<Button title="Get a Free Quote" onPress={() => {}} />
+      <Pressable onPress={() => {}}>
+      <Text style={styles.buttonText}>Get a Free Quote</Text> 
+    </Pressable>
     </View>
   );
 };
@@ -30,6 +32,15 @@ const styles = StyleSheet.create({
     lineHeight: 22,
     marginVertical: 10,
   },
+  buttonText: {
+    fontSize: 16,
+    lineHeight: 22,
+    marginVertical: 10,
+    color: "white",
+    backgroundColor: "black",
+    padding: 10,
+    borderRadius: 10,
+  }
 });
 
 export default WelcomeBlurb;

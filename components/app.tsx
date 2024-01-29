@@ -11,18 +11,6 @@ import ContactPage from './ContactPage';
 
 type Page = 'home' | 'history' | 'enquiry' | 'contact';
 
-const theme = {
-  ...DefaultTheme,
-  colors: {
-    ...DefaultTheme.colors,
-    primary: '#3498db',
-    accent: '#f1c40f',
-    background: '#34495e',
-    surface: '#2c3e50',
-    text: '#ecf0f1',
-  },
-};
-
 const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<Page>('home');
 

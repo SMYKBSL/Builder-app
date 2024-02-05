@@ -1,35 +1,24 @@
 import { StyleSheet,Pressable, ImageBackground } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { Text, View,  } from '@/components/Themed';
-
-export default function TabOneScreen() {
+import { Text, View } from '@/components/Themed';
+import EmbeddedFacebookAlbum from '../../components/EmbeddedFacebookAlbum';
+export default function TabThreeScreen() {
   const navigation = useNavigation();
+  const albumUrl = 'https://www.facebook.com/embed/album/YOUR_ALBUM_ID/';
 
   return (
-    <ImageBackground
-      source={{
-        uri: "https://source.unsplash.com/random?bricklayer,blackandwhite",
-      }}
-      style={{ width: "100%", height: "100%", opacity: 1 }}
-    >
       <View style={styles.blurbContainer}>
         <Text style={styles.title}>Welcome to {`[Company Name]`}</Text>
         <Text style={styles.description}>
-          We're a passionate team of bricklayers and builders dedicated to
-          crafting exceptional homes and structures. With over {`[Number]`}{" "}
-          years of experience, we pride ourselves on{" "}
-          {`[Highlight key qualities, e.g., precision, quality, reliability]`}
-          workmanship and exceeding client expectations.
+          Project list
         </Text>
         <Text style={styles.description}>
-          Co jeszcze? - projekty? - wsparcie? - wizytówka? - szczegóły projektu?
-          - cennik? - kontakt? - wersja po polsku?
+          load facebook library
         </Text>
-        <Pressable onPress={() => navigation.navigate("two")}>
-          <Text style={styles.buttonText}>Get a Free Quote</Text>
-        </Pressable>
+        <View style={styles.albumContainer}>
+        <EmbeddedFacebookAlbum albumUrl={albumUrl} />
       </View>
-    </ImageBackground>
+          </View>
   );
 }
 
@@ -66,5 +55,12 @@ const styles = StyleSheet.create({
     backgroundColor: "black",
     padding: 10,
     borderRadius: 10,
+  },
+  albumContainer: {
+    flex: 1,
+    width: '100%',
+    height: '100%',
+    backgroundColor: 'black',
+    opacity: 1,
   }
 });

@@ -1,9 +1,37 @@
-import { StyleSheet, TextInput, Button, ImageBackground, Pressable } from 'react-native';
+import { StyleSheet, TextInput, ImageBackground, Pressable, Linking } from 'react-native';
 import { Text, View } from '@/components/Themed';
 
+import { Image } from 'react-native';
+
 import React, { useState } from 'react';
-import * as WebBrowser from 'expo-web-browser';
+
 import axios from 'axios';
+
+import facebookIcon from '../../assets/images/Facebook_Logo_2023.png';
+import youtubeIcon from '../../assets/images/Facebook_Logo_2023.png';
+
+interface ContactLinkProps {
+  name: string;
+  url: string;
+  icon: Image.URISourcePropType;
+}
+
+
+
+const ContactLink: React.FC<ContactLinkProps> = ({ name, url, icon }) => {
+  const handlePress = () => {
+    Linking.openURL(url);
+  };
+
+  return (
+    <Pressable style={styles.contactLinkCell} onPress={handlePress}>
+      <View style={styles.contactLinkIconContainer}>
+        <Image source={icon} style={styles.contactLinkIcon} />
+      </View>
+      <Text style={styles.contactLinkText}>{name}</Text>
+    </Pressable>
+  );
+};
 
 type Enquiry = {
   name: string;
@@ -36,12 +64,7 @@ export default function TabTwoScreen() {
     setEnquiry({ ...enquiry, projectDescription: description });
 
   return (
-    <ImageBackground
-      source={{
-        uri: "https://source.unsplash.com/random?bricklayer,builders,blackandwhite",
-      }}
-      style={{ width: "100%", height: "100%", opacity: 1 }}
-    >
+
       <View style={styles.formContainer}>
         <Text style={styles.title}>Request a Free Quote</Text>
         <TextInput
@@ -66,8 +89,29 @@ export default function TabTwoScreen() {
         <Pressable onPress={handleSubmit}>
           <Text style={styles.buttonText}>Submit Enquiry</Text>
         </Pressable>
+        
+        <View style={styles.contactLinksTable}>
+          <View style={styles.contactLinksTableRow}>
+            <View style={styles.contactLinkCell}>
+              <ContactLink
+                name="Facebook"
+                url="https://www.facebook.com"
+                icon={facebookIcon}
+              />
+              </View>
+            <View style={styles.contactLinkCell}>
+            <ContactLink
+              name="YouTube"
+              url="https://www.youtube.com"
+              icon={youtubeIcon}
+            />
+            </View>
+          </View>
+        {/* Add more rows as needed */}
       </View>
-    </ImageBackground>
+      </View>
+
+
   );
 }
 
@@ -100,5 +144,39 @@ const styles = StyleSheet.create({
     backgroundColor: "black",
     padding: 10,
     borderRadius: 10,
+  },
+  contactLinkContainer: {
+    
+  },
+  contactLinkText: {
+    
+  },
+  contactLinkIcon:{
+    height: '10%',
+    width: '10%',
+  },
+  contactLinksTable:{
+    marginTop: 20,
+    padding: 20,
+    backgroundColor: "darkgrey",
+    opacity: 1,
+  },
+  contactLinksTableRow:{
+    flexDirection: 'row',
+    justifyContent:'space-between',
+    padding: 10,
+  },
+  contactLinkCell:{
+    flex: 1,
+    padding: 10,
+    backgroundColor: "darkgrey",
+    alignItems: 'center',
+    opacity: 1,
+  },
+  contactLinkIconContainer:{
+    flex: 1,
+    padding: 10,
+    backgroundColor: "darkgrey",
+    opacity: 1,
   }
 });
